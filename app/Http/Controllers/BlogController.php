@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Post;
 use App\User;
+use App\Category;
 
 class BlogController extends Controller
 {
@@ -15,7 +16,7 @@ class BlogController extends Controller
      */
     public function index()
     {
-        return view('welcome')->with('posts',Post::orderBy('published_at','desc')->get());
+        return view('welcome')->with('posts',Post::orderBy('published_at','desc')->get())->with('categories',Category::all());
     }
 
     /**

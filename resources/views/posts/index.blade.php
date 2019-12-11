@@ -9,13 +9,14 @@
 
   <table class="table table-condensed">
     <thead>
-      <tr>
+      <tr class="bg-dark text-light">
         <th>Id</th>
         <th>Title</th>
         <th>Fecha/Hora</th>
-        <th style="width:15px"></th>
-        <th style="width:15px"></th>
-        <th style="width:15px"></th>
+        <th>Category</th>
+        <th style="width:15px">View</th>
+        <th style="width:15px">Edit</th>
+        <th style="width:15px">Delete</th>
       </tr>
       </thead>
     <tbody>
@@ -23,7 +24,8 @@
       <tr>
         <td>{{$p->id}}</td>
         <td>{{$p->title}}</td>
-        <td>{{date("j/m/Y H:i:s", strtotime($p->published_at))}}</td>
+        <td>{{date("d/m/Y H:i:s", strtotime($p->published_at))}}</td>
+        <td>{{$p->category->name}}</td>
         <td>
         <a title="Ver" href="{{route ('posts.show',$p->id)}}"><i class="fa fa-eye" style="color:black"></i></a>
         </td>
