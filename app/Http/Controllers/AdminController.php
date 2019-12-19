@@ -3,26 +3,17 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Post;
-use App\User;
-use App\Category;
-use Illuminate\Support\Facades\Auth;
 
-class PostController extends Controller
+class AdminController extends Controller
 {
-
-    public function __construc(){
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index(User $user)
+    public function index()
     {
-        return view('posts.index')->with('posts',Auth::user()->posts);
+        return 'admin';
     }
 
     /**
@@ -32,7 +23,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view('posts.create')->with('categories',Category::all());
+        //
     }
 
     /**
@@ -43,16 +34,7 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        $post = new Post;
-        $post->title = $request->title;
-        $post->excerpt = $request->excerpt;
-        $post->body = $request->body;
-        $post->category_id = $request->category;
-        $post->user_id = auth()->user()->id;
-        if(isset($post->image))
-            $post->image = $request->image;
-        $post->save();
-        return redirect('/posts');
+        //
     }
 
     /**
